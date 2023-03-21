@@ -1,0 +1,22 @@
+---
+
+- hosts: Control_server
+  become: true
+  tasks:
+
+  - name: Copy
+    run_once: yes
+    fetch:
+      src: /var/log/alternatives.log
+      dest: ~/buffer/
+    when: inventory_hostname == "192.168.56.105"
+
+#- hosts: Manage_server
+#  become: true
+#  tasks:
+#
+ # - name: Output
+  #  copy:
+   #   src: ~/buffer/alternatives.log
+    #  dest: ~/cpe243ansible/
+   # when: inventory_hostname == "192.168.56.106"
