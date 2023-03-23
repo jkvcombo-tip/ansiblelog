@@ -1,0 +1,13 @@
+---
+
+- hosts: Control_server
+  become: true
+  tasks:
+
+  - name: Copy
+    run_once: yes
+    fetch:
+      src: /home/combo/pcap/npcap.pcap
+      dest: ~/pcaps/
+      flat: yes
+    when: inventory_hostname == "192.168.56.105"
